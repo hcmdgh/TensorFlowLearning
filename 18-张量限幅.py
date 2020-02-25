@@ -53,4 +53,19 @@ print(b)
  [ 7.580981   5.3066864  3.7904904]], shape=(4, 3), dtype=float32) '''
 
 # 5. clip_by_global_norm
-# 有待进一步挖掘
+# 没看懂，有待进一步挖掘
+a = list(map(tf.constant, [
+    [2., -3., -5.],
+    [1., 4., -7.],
+    [9., -3., 8.],
+    [10., 7., 5.],
+]))
+list_clipped, global_norm = tf.clip_by_global_norm(a, 10)
+print(list_clipped)
+''' [<tf.Tensor: shape=(3,), dtype=float32, numpy=array([ 0.9622505, -1.4433757, -2.4056263], dtype=float32)>,
+ <tf.Tensor: shape=(3,), dtype=float32, numpy=array([ 0.48112524,  1.924501  , -3.3678765 ], dtype=float32)>,
+  <tf.Tensor: shape=(3,), dtype=float32, numpy=array([ 4.3301272, -1.4433757,  3.849002 ], dtype=float32)>,
+   <tf.Tensor: shape=(3,), dtype=float32, numpy=array([4.8112526, 3.3678765, 2.4056263], dtype=float32)>] '''
+
+print(global_norm)
+''' tf.Tensor(20.784609, shape=(), dtype=float32) '''
